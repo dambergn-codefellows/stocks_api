@@ -1,11 +1,17 @@
 # Stocks API
 
+## To run
+```
+pipenv shell
+pserve development.ini --reload
+```
+
 # Version 1.0.0
 
 ## Features
-- [ ]Disable the unnecessary functionality of your scaffold, by commenting out the include() statements in your __init__.py:main() function; we will not be using Jinja2 templating (Delete that line) or Models for the time being
-- [ ]Delete the templates/ directory
-- [ ]Remove the contents of default.py and notfound.py
+- [X]Disable the unnecessary functionality of your scaffold, by commenting out the include() statements in your __init__.py:main() function; we will not be using Jinja2 templating (Delete that line) or Models for the time being
+- [X]Delete the templates/ directory
+- [X]Remove the contents of default.py and notfound.py
 - [ ]Ensure that your application can accept requests to the following routes, and returns the appropriate response:
  - NOTE: You do not need to build any controller functionality other than a simple response with a status and JSON encoded message
 - [ ]GET / - the base API route
@@ -75,3 +81,4 @@ Response body:
 ### 2018-08-22
 - Set up basic api server, working.
 - Populated README.md with features and requirements.
+- Added auth, portfolio, and company routes.

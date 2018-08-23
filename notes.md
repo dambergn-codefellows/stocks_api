@@ -1,6 +1,6 @@
 ### Don't create a folder for the project, just navigate to the folder you want to project to live.
 ```
-#if already installed
+#if not already installed
   sudo pip install cookiecutter --user
 cookiecutter gh:Pylons/pyramid-cookiecutter-alchemy
 cd "project_folder"
