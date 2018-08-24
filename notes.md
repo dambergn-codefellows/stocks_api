@@ -1,3 +1,137 @@
+- .ssh
+```
+Host stocks
+  Hostname "DNS or IP address"
+  User ubuntu
+  IdentityFile ~/.ssh/stocks_api.pem
+```
+save as config
+chmod 4000 stock_api.pem
+
+```
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install nginx build-essential python-dev python3-pip -y
+cd ~
+git clone "git repository" src
+cd src
+which pip3
+pip3 install -e . --user
+cd ~
+# Configureing NGINX
+sudo rm /etc/nginx/nginx.conf
+sudo nano /etc/nginx/nginx.conf
+# paste config settings
+user www-data;
+    worker_processes 4;
+    pid /var/run/nginx.pid;
+
+    events {
+        worker_connections 1024;
+        # multi_accept on;
+    }
+
+    http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        types_hash_max_size 2048;
+        # server_tokens off;
+
+        server_names_hash_bucket_size 128;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ##
+        # Gzip Settings
+        ##
+
+        gzip on;
+        gzip_disable "msie6";
+
+        ##
+        # Virtual Host Configs
+        ##
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+    }
+#CRTL + x
+sudo nano /etc/nginx/conf.d/stocks_api.conf
+upstream (stocks_api) {
+        server 127.0.0.1:8000;
+    }
+
+    server {
+        listen 80;
+
+        server_name (EC2 public DNS);
+
+        access_log  /home/ubuntu/.local/nginx.access.log;
+
+        location / {
+            proxy_set_header        Host $http_host;
+            proxy_set_header        X-Real-IP $remote_addr;
+            proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header        X-Forwarded-Proto $scheme;
+
+            client_max_body_size    10m;
+            client_body_buffer_size 128k;
+            proxy_connect_timeout   60s;
+            proxy_send_timeout      90s;
+            proxy_read_timeout      90s;
+            proxy_buffering         off;
+            proxy_temp_file_write_size 64k;
+            proxy_pass http://(project_name);
+            proxy_redirect          off;
+        }
+    }
+
+# Syntax validation
+sudo nginx -t
+sudo service nginx status
+sudo restart
+pip3 install gunicorn
+which gunicorn
+/home/ubuntu/.local/bin/gunicorn
+sudo nano /etc/systemd/system/gunicorn.service
+# gunicorn.service
+    [Unit]
+    Description=(your description)
+    After=network.target
+
+    [Service]
+    User=ubuntu
+    Group=www-data
+    WorkingDirectory=/home/ubuntu/src
+    ExecStart=/home/ubuntu/.local/bin/gunicorn --access-logfile - -w 3 --paste production.ini
+
+    [Install]
+    WantedBy=multi-user.target
+CTRL + x
+sudo systemctl enable gunicorn
+sudo systemctl start gunicorn
+sudo systemctl status gunicorn
+```
+
+
+
+
+
 ### Don't create a folder for the project, just navigate to the folder you want to project to live.
 ```
 #if not already installed
