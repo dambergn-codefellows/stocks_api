@@ -6,16 +6,18 @@ Host stocks
   IdentityFile ~/.ssh/stocks_api.pem
 ```
 save as config
-chmod 4000 stock_api.pem
+chmod 400 stock_api.pem
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install nginx build-essential python-dev python3-pip -y
+sudo pip install --user pipenv
 cd ~
 git clone "git repository" src
 cd src
 which pip3
 pip3 install -e . --user
+pip3 install pyramid-restful-framework
 cd ~
 # Configureing NGINX
 sudo rm /etc/nginx/nginx.conf
@@ -72,16 +74,16 @@ user www-data;
     }
 #CRTL + x
 sudo nano /etc/nginx/conf.d/stocks_api.conf
-upstream (stocks_api) {
+upstream stocks_api {
         server 127.0.0.1:8000;
     }
 
     server {
         listen 80;
 
-        server_name (EC2 public DNS);
+        server_name mhzsys.net;
 
-        access_log  /home/ubuntu/.local/nginx.access.log;
+        access_log  /home/nadpro/.local/nginx.access.log;
 
         location / {
             proxy_set_header        Host $http_host;
@@ -96,7 +98,7 @@ upstream (stocks_api) {
             proxy_read_timeout      90s;
             proxy_buffering         off;
             proxy_temp_file_write_size 64k;
-            proxy_pass http://(project_name);
+            proxy_pass http://stocks_api;
             proxy_redirect          off;
         }
     }
@@ -115,10 +117,10 @@ sudo nano /etc/systemd/system/gunicorn.service
     After=network.target
 
     [Service]
-    User=ubuntu
+    User=nadpro
     Group=www-data
-    WorkingDirectory=/home/ubuntu/src
-    ExecStart=/home/ubuntu/.local/bin/gunicorn --access-logfile - -w 3 --paste production.ini
+    WorkingDirectory=/home/nadpro/src
+    ExecStart=/home/nadpro/.local/bin/gunicorn --access-logfile - -w 3 --paste production.ini
 
     [Install]
     WantedBy=multi-user.target
