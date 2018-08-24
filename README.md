@@ -78,6 +78,12 @@ Response body:
 
 ## Change Log
 
+### 2018-08-23
+- Created new setup-code-review-modifications branch
+- git
+ - git remote add origin remote repository URL
+ - git remove -v
+
 ### 2018-08-22
 - Set up basic api server, working.
 - Populated README.md with features and requirements.
