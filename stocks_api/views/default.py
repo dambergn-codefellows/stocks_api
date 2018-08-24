@@ -8,3 +8,10 @@ def home_view(request):
   """
   message = 'Hello World'
   return Response(body=message, status=200)
+
+# @view_config(route_name='company', renderer='json', request_method='GET')
+# def auth_view(request):
+#   """
+#   """
+#   message = 'Authorization route get'
+#   return Response(body=message, status=200)
