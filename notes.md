@@ -81,7 +81,7 @@ upstream stocks_api {
     server {
         listen 80;
 
-        server_name http://mhzsys.net;
+        server_name mhzsys.net;
 
         access_log  /home/nadpro/.local/nginx.access.log;
 
@@ -98,7 +98,7 @@ upstream stocks_api {
             proxy_read_timeout      90s;
             proxy_buffering         off;
             proxy_temp_file_write_size 64k;
-            proxy_pass http://localhost;
+            proxy_pass http://stocks_api;
             proxy_redirect          off;
         }
     }
