@@ -124,10 +124,11 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - Finished base API route return.
 - Portfolio get route created.
 - Stock and Company routes created.
-- Version 1.0.0 functionallity complete.
+- Version 1.0.0 functionality complete.
 - Fixed F strings I thought I fixed already.
 - Missed some F strings.
 - Fixed deployment issues in code.
+- Version 1.1.0 functionality complete.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
