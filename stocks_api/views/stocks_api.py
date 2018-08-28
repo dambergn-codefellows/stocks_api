@@ -14,7 +14,7 @@ def home_view(request):
 def home_view(request):
     """
     """
-    message = f'stock POST route hit\n'
+    message = 'stock POST route hit\n'
 
     return Response(body=message, status=201) 
 
@@ -22,7 +22,7 @@ def home_view(request):
 def home_view(request):
     """
     """
-    message = f'stock DELETE route hit\n'
+    message = 'stock DELETE route hit\n'
 
     return Response(body=message, status=204) 
 
