@@ -16,6 +16,13 @@ def home_view(request):
 
   return Response(body=message, status=200)
 
+# @view_config(route_name='auth', renderer='json', request_method='GET')
+# def home_view(request):
+#     """
+#     """
+#     message = f'POST route hit\n'
+
+#     return Response(body=message, status=200)
 
 # @view_config(route_name='company', renderer='json', request_method='GET')
 # def auth_view(request):

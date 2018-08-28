@@ -122,6 +122,7 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - Added requirements for Version 1.3.0
 - Created relationship-model branch.
 - Finished base API route return.
+- Portfolio get route created.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
