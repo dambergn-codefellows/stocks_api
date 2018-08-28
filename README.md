@@ -6,13 +6,13 @@ pipenv shell
 pserve development.ini --reload
 ```
 
-# Version 1.0.0
+# Version 1.1.0
 
 ## Features
 - [X]Disable the unnecessary functionality of your scaffold, by commenting out the include() statements in your __init__.py:main() function; we will not be using Jinja2 templating (Delete that line) or Models for the time being
 - [X]Delete the templates/ directory
 - [X]Remove the contents of default.py and notfound.py
-- [ ]Ensure that your application can accept requests to the following routes, and returns the appropriate response:
+- [X]Ensure that your application can accept requests to the following routes, and returns the appropriate response:
  - NOTE: You do not need to build any controller functionality other than a simple response with a status and JSON encoded message
 - [X]GET / - the base API route
   ```
@@ -26,7 +26,7 @@ pserve development.ini --reload
       DELETE /api/v1/stock/{id} - for deleting a company record
       GET /api/v1/company/{symbol} - for retrieving company detail from 3rd party API, where `{symbol}` is variable
   ```
-- [ ]POST /api/v1/auth/ username=user password=seekret email=who@example.com - for registering a new account and signing up
+- [X]POST /api/v1/auth/ username=user password=seekret email=who@example.com - for registering a new account and signing up
 ```
 Status code: 201 CREATED
 Response body:
@@ -35,7 +35,7 @@ Response body:
       //...
   }
 ```
-- [ ]GET /api/v1/portfolio/{id}/ - for a user’s portfolio
+- [X]GET /api/v1/portfolio/{id}/ - for a user’s portfolio
 ```
 Status code: 200 OK
 Response body:
@@ -44,7 +44,7 @@ Response body:
       //...
   }
 ```
-- [ ]POST /api/v1/stock/ name=data symbol=data portfolio_id=int ... - for creating a stock record associated with a user’s portfolio
+- [X]POST /api/v1/stock/ name=data symbol=data portfolio_id=int ... - for creating a stock record associated with a user’s portfolio
 ```
 Status code: 201 CREATED
 Response body:
@@ -53,7 +53,7 @@ Response body:
       //...
   }
 ```
-- [ ]GET /api/v1/stock/{id}/ - for retrieving a stock record belonging to a user’s portfolio
+- [X]GET /api/v1/stock/{id}/ - for retrieving a stock record belonging to a user’s portfolio
 ```
 Status code: 200 OK
 Response body:
@@ -62,11 +62,11 @@ Response body:
       //...
   }
 ```
-- [ ]DELETE /api/v1/stock/{id}/ - for retrieving a stock record belonging to a user’s portfolio
+- [X]DELETE /api/v1/stock/{id}/ - for retrieving a stock record belonging to a user’s portfolio
 ```
 Status code: 204 NO CONTENT
 ```
-- [ ]GET /api/v1/company/{symbol}/ - for retrieving company detail from 3rd party API, where {symbol} is variable
+- [X]GET /api/v1/company/{symbol}/ - for retrieving company detail from 3rd party API, where {symbol} is variable
 ```
 Status code: 200 OK
 Response body:
@@ -124,6 +124,7 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - Finished base API route return.
 - Portfolio get route created.
 - Stock and Company routes created.
+- Version 1.0.0 functionallity complete.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
