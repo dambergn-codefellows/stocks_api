@@ -76,7 +76,51 @@ Response body:
   }
 ```
 
+### Version 1.1.0
+- [ ]Deploy your API to AWS!
+- [ ]It’s important that you complete your deployment in a programmatic way today, so please follow the deployment tutorial or lecture videos closely if you’re unclear on how to proceed.
+
+### Version 1.2.0
+- [ ]In your models/ directory, create a file called portfolio.py.
+- [ ]You will create a Portfolio class with the following attributes:
+- [ ]id, name, date_created, date_updated
+- [ ]Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
+- [ ]Define two class methods on your Portfolio class:
+- [ ]one(): Retrieve a single instance from the database by the primary key for that record
+- [ ]new(): Create a single new instance of the Portfolio class
+- [ ]In your models/ directory, create a file called stock.py.
+- [ ]You will create a Stock class with the following attributes, which are being defined to mirror the data that you will retrieve from your 3rd party API:
+- [ ]id, symbol, companyName, exchange, industry, website, description, CEO, issueType, sector, date_created, date_updated
+- [ ]Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
+- [ ]Define three class methods on your Stock class:
+- [ ]one(): Retrieve a single instance from the database by the primary key for that record
+- [ ]new(): Create a single new instance of the Stock class
+- [ ]destroy(): Remove a single instance from the database by the primary key for that record
+- [ ]In your models/ directory, create a file called schemas.py for your model serializers.
+- [ ]You will define two Marshmallow schemas in this file, one for PortfolioSchema and one for StockSchema.
+- [ ]Each of these will simply define the model they require for serialization (we’ll further define these later in the course…)
+- [ ]In your views/portfolio.py file, you will further define the following View Class Controllers:
+- [ ]PortfolioAPIView - Controller interactions with your Portfolio model/schema
+- [ ]StockAPIView - Controller interactions with your Stock model/schema
+- [ ]CompanyAPIView - 3rd-party API interactions for requesting company data for your portfolio
+You will be using the requests library and a free API from IEX TRADING, which does not require the use of an API key at this point.
+- [ ]We are specifically interested in the Company Info and the Time Series info, both of which are accessible via an API call using a companies Stock Symbol.
+- [ ]Using your model class methods, formulate an appropriate serialized response for each available endpoint / method that we configured in our last lab for this application. You may want to refer back to the LAB.md specification for each of those endpoints to review the functionality required.
+
 ## Change Log
+
+### 2018-08-28
+- Updated readme with current feature requirements.
+
+### 2018-08-27
+- Finished configuration of NGNIX for live deployment.
+
+### 2018-08-24
+- Created Ubuntu 16.04 VM
+- Installed NGNIX and dependencies.
+- Setup port forwarding.
+- Deployed app to server.
+- App is running, T/S issues with NGINX configuration.
 
 ### 2018-08-23
 - Created new setup-code-review-modifications branch
