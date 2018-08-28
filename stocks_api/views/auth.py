@@ -1,5 +1,14 @@
 from pyramid_restful.viewsets import APIViewSet
 from pyramid.response import Response
+from pyramid.view import view_config
+
+@view_config(route_name='auth', renderer='json', request_method='POST')
+def home_view(request):
+    """
+    """
+    message = f'POST route hit\n'
+
+    return Response(body=message, status=200)
 
 class AuthAPIView(APIViewSet):
     def list(self, request):
@@ -13,3 +22,4 @@ class AuthAPIView(APIViewSet):
 
     def destroy(self, request): #will require resourses to test
         return Response(json={'message': 'Deleted the record'}, status=204)
+

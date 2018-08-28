@@ -1,6 +1,30 @@
 from pyramid_restful.viewsets import APIViewSet
 from pyramid.response import Response
+from pyramid.view import view_config
 
+@view_config(route_name='stock', renderer='json', request_method='GET')
+def home_view(request):
+    """
+    """
+    message = f'stock GET route hit\n'
+
+    return Response(body=message, status=200) 
+
+@view_config(route_name='stock', renderer='json', request_method='POST')
+def home_view(request):
+    """
+    """
+    message = f'stock POST route hit\n'
+
+    return Response(body=message, status=201) 
+
+@view_config(route_name='stock', renderer='json', request_method='DELETE')
+def home_view(request):
+    """
+    """
+    message = f'stock DELETE route hit\n'
+
+    return Response(body=message, status=204) 
 
 class StocksAPIView(APIViewSet):
     def list(self, request):
@@ -14,3 +38,4 @@ class StocksAPIView(APIViewSet):
 
     def destroy(self, request, id=None): #will require resourses to test
         return Response(json={'message': 'Deleted the record'}, status=204)
+
