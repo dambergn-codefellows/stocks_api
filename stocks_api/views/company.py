@@ -6,7 +6,7 @@ from pyramid.view import view_config
 def home_view(request):
     """
     """
-    message = f'company GET route hit\n'
+    message = 'company GET route hit\n'
 
     return Response(body=message, status=200) 
 
