@@ -107,10 +107,19 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - [ ]We are specifically interested in the Company Info and the Time Series info, both of which are accessible via an API call using a companies Stock Symbol.
 - [ ]Using your model class methods, formulate an appropriate serialized response for each available endpoint / method that we configured in our last lab for this application. You may want to refer back to the LAB.md specification for each of those endpoints to review the functionality required.
 
+### Version 1.3.0
+- [ ]Using the diagram below as a guide update your models/ directory with the new account.py, role.py, and associations.py files, and create each of the tables
+- [ ]Ensure that your model relationships are functional
+- [ ]Ensure that you’ve taken advantage of the SQLAlchemy relationship method to create additional functionality within your code base for accessing those new relationships
+- [ ]Add your new models to the Initialization Script, drop and recreate your DB, and initialize again with your new tables
+![example](https://codefellows.github.io/code-401-python-guide/curriculum/class-12-model-relationships/assets/EDR_class_12.png)
+
+
 ## Change Log
 
 ### 2018-08-28
 - Updated readme with current feature requirements.
+- Added requirements for Version 1.3.0
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
