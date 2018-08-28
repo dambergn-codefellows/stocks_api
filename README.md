@@ -126,6 +126,7 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - Stock and Company routes created.
 - Version 1.0.0 functionallity complete.
 - Fixed F strings I thought I fixed already.
+- Missed some F strings.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
