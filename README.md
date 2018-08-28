@@ -14,7 +14,7 @@ pserve development.ini --reload
 - [X]Remove the contents of default.py and notfound.py
 - [ ]Ensure that your application can accept requests to the following routes, and returns the appropriate response:
  - NOTE: You do not need to build any controller functionality other than a simple response with a status and JSON encoded message
-- [ ]GET / - the base API route
+- [X]GET / - the base API route
   ```
   Status code: 200 OK
   Response body:
@@ -120,6 +120,8 @@ You will be using the requests library and a free API from IEX TRADING, which do
 ### 2018-08-28
 - Updated readme with current feature requirements.
 - Added requirements for Version 1.3.0
+- Created relationship-model branch.
+- Finished base API route return.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
