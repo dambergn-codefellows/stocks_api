@@ -6,7 +6,7 @@ from pyramid.view import view_config
 def home_view(request):
   """
   """
-  message = f'GET / - the base API route\n' \
+  message = 'GET / - the base API route\n' \
     'POST /api/v1/auth/ - for registering a new account and signing up\n' \
     'GET /api/v1/portfolio/{id}/ - for retrieving a user\'s portfolio\n' \
     'POST /api/v1/stock/ - for creating a new company record\n' \
