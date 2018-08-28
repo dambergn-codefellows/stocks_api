@@ -77,8 +77,8 @@ Response body:
 ```
 
 ### Version 1.1.0
-- [ ]Deploy your API to AWS!
-- [ ]It’s important that you complete your deployment in a programmatic way today, so please follow the deployment tutorial or lecture videos closely if you’re unclear on how to proceed.
+- [X]Deploy your API to AWS!
+- [X]It’s important that you complete your deployment in a programmatic way today, so please follow the deployment tutorial or lecture videos closely if you’re unclear on how to proceed.
 
 ### Version 1.2.0
 - [ ]In your models/ directory, create a file called portfolio.py.
@@ -127,6 +127,7 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - Version 1.0.0 functionallity complete.
 - Fixed F strings I thought I fixed already.
 - Missed some F strings.
+- Fixed deployment issues in code.
 
 ### 2018-08-27
 - Finished configuration of NGNIX for live deployment.
