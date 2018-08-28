@@ -9,8 +9,8 @@ def includeme(config):
     config.add_route('home', '/')
     config.add_route('auth', '/api/v1/auth/')
     config.add_route('portfolio', '/api/v1/portfolio/')
-    # config.add_route('auth', '/api/v1/stock/')
-
+    config.add_route('stock', '/api/v1/stock/')
+    config.add_route('company', '/api/v1/company/')
 
     router = ViewSetRouter(config)
     # router.register('api/v1/company', CompanyAPIView, 'company')
