@@ -6,9 +6,9 @@ pipenv shell
 pserve development.ini --reload
 ```
 
-# Version 1.1.0
+# Version 1.2.0
 
-## Features
+## Version 1.0.0
 - [X]Disable the unnecessary functionality of your scaffold, by commenting out the include() statements in your __init__.py:main() function; we will not be using Jinja2 templating (Delete that line) or Models for the time being
 - [X]Delete the templates/ directory
 - [X]Remove the contents of default.py and notfound.py
@@ -76,12 +76,12 @@ Response body:
   }
 ```
 
-### Version 1.1.0
+### Version 1.1.0 / Deployment
 - [X]Deploy your API to AWS!
 - [X]It’s important that you complete your deployment in a programmatic way today, so please follow the deployment tutorial or lecture videos closely if you’re unclear on how to proceed.
 
 ### Version 1.2.0
-- [ ]In your models/ directory, create a file called portfolio.py.
+- [X]In your models/ directory, create a file called portfolio.py.
 - [ ]You will create a Portfolio class with the following attributes:
 - [ ]id, name, date_created, date_updated
 - [ ]Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
@@ -114,8 +114,24 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - [ ]Add your new models to the Initialization Script, drop and recreate your DB, and initialize again with your new tables
 ![example](https://codefellows.github.io/code-401-python-guide/curriculum/class-12-model-relationships/assets/EDR_class_12.png)
 
+### Version 1.4.0
+- [ ]Install and configure the use of the pyramid_jwt library in your application, and configure the Pyramid policies and permissions for your views and routes
+- [ ]You will need to configure your RootACL class in the project’s __init__.py file before your associated permissions on the routes/views will take effect
+- [ ]In models/account.py:
+- [ ]Refactor your Account model with a __init__ method, which allows your users password to be hashed by bcrypt before being stored in the database
+- [ ]Create a check_credentials class method on your Account model which allows a verification of username and password, and returns None on validation failure or the Account instance on validation success
+- [ ]In the views/ directory, create a new file called auth.py
+- [ ]Add a new view controller class called AuthAPIView for defining your registration and login functionality
+- [ ]You view controller should enable a post for registration and a get for login
+- [ ]Each of these methods should construct and return a new JSON Web Token in the response, and Nothing else
+- [ ]If the registration or login fails, handle those exceptions correctly with an appropriate status code and JSON response
+- [ ]For example, if a user registers with an email that’s already registered in the system you will send a 409 Conflict status code with an appropriate message in the response body
 
 ## Change Log
+
+### 2018-08-29
+- created authentication branch
+- updated readme with Version 1.4.0 requirements.
 
 ### 2018-08-28
 - Updated readme with current feature requirements.

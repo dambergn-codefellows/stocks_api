@@ -11,15 +11,24 @@ def home_view(request):
     return Response(body=message, status=200)
 
 class AuthAPIView(APIViewSet):
-    def list(self, request):
-        return Response(json={'message': 'Listing all the records'}, status=200)
+    def create(self, request, auth=None):
+        """
+        """
+        data = json.loads(request.body)
 
-    def retrieve(self, request): #will require resourses to test
-        return Response(json={'message': 'Listing one record'}, status=200)
+        if auth == 'register':
+            try = Account.new(
+                request,
+                data['email'],
+                data['password'])
+            except (integrityError, KeyError):
+                return Response(json='Bad Request', status=400)
 
-    def create(self, request):
-        return Response(json={'message': 'Created a new record'}, status=201)
+            # TODO: Refactor to use JSON Web Token
+            return Response(json='Created', status=201)
 
-    def destroy(self, request): #will require resourses to test
-        return Response(json={'message': 'Deleted the record'}, status=204)
+        if auth == 'login':
+            pass
+
+        return Response(json='Not Found', status=404)
 
