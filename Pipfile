@@ -9,6 +9,10 @@ pylint = "*"
 [packages]
 stocks-api = {path = ".", extras = ["testing"], editable = true}
 requests = "*"
+jupyter = "*"
+numpy = "*"
+pandas = "*"
+scipy = "*"
 
 [requires]
 python_version = "3.6"

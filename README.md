@@ -5,6 +5,13 @@
 pipenv shell
 pserve development.ini --reload
 ```
+```
+pipenv install jupyter
+pipenv install numpy
+pipenv install pandas
+pipenv install scipy
+jupyter-notebook
+```
 
 # Version 1.2.0
 
@@ -127,7 +134,30 @@ You will be using the requests library and a free API from IEX TRADING, which do
 - [ ]If the registration or login fails, handle those exceptions correctly with an appropriate status code and JSON response
 - [ ]For example, if a user registers with an email that’s already registered in the system you will send a 409 Conflict status code with an appropriate message in the response body
 
+### Version 1.5.0
+- [ ] Using the same API (IEXTrading.com) that you consumed in your Stock API application, make an initial API call for 5 years of time series data for any major company that you’d like to work with. Some potential opportunities would be Microsoft, Google, Apple, or Amazon.
+- [ ] Whatever company your choose must have at least five years of data available to work with.
+- [ ] Load the data you receive into a Pandas DataFrame
+- [ ] Show the first five rows of the dataset
+- [ ] Show the description and the info of the dataset, utilizing the appropriate Pandas methods
+- [ ] Ensure that the date column has been cast into a datetime object in your DataFrame; you will have to write this yourself.
+
+### Version 1.6.0
+- [ ] In your Jupyter Notebook:
+- [ ] Implement a CandleStick visual (Bokeh) which displays the following data points for each date in the historical time series data, given a ticker symbol for your API to return data related to a single company.
+- [ ] open, close, high, low
+- [ ] You will also need to calculate the mid-point each ‘tail’ to place your candlestick data.
+- [ ] Using resources at your disposal, Google/Bing/etc, make a decision on two additional visualizations that you feel are relevant to the stock’s time series data, which each answers a specific question, and implement those visualizations.
+- [ ] You should pose your questions, any supporting data, and your conclusions in the notebook for future reference.
+- [ ] In your Stock API:
+- [ ] Create a new endpoint in your application, filterable via query-string, including a class-based view, and other configurations which when a request is made will generate a 5 year time series Candlestick visual and save it to the file system of your project under static/.
+- [ ] For example:
+- [ ] GET /api/v1/visuals/MSFT?type=candle: returns <200 OK>, and creates a new file in the file system for that chart. This should save in html format.
+
 ## Change Log
+
+### 2018-09-05
+- updated readme with todo features
 
 ### 2018-08-29
 - created authentication branch
